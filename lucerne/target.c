@@ -11,8 +11,12 @@
 #include <libproc.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <dispatch/dispatch.h>
 
 static lucerne_target *connected_target = NULL;
+static dispatch_queue_t target_death_observer_dispatch_queue;
+static struct kevent target_death_kevent_observer;
+static int target_death_kqueue;
 
 lucerne_target *get_connected_target(void) {
     return connected_target;
@@ -20,10 +24,40 @@ lucerne_target *get_connected_target(void) {
 
 void set_connected_target(lucerne_target *target) {
     connected_target = target;
+    
+    if (!target_death_observer_dispatch_queue)
+        target_death_observer_dispatch_queue = dispatch_queue_create("com.antoine.lucerne.target_death_observer", NULL);
+    
+    // watch out for when the target dies,
+    // and disconnect when/if it does
+    dispatch_async(target_death_observer_dispatch_queue, ^{
+        target_death_kqueue = kqueue();
+        EV_SET(&target_death_kevent_observer, target->pid, EVFILT_PROC, EV_ADD, NOTE_EXIT, 0, NULL);
+        
+        // this is blocking (which is why we run it on an async q)
+        int nev = kevent(target_death_kqueue, &target_death_kevent_observer, 1, &target_death_kevent_observer, 1, NULL);
+        
+        if (nev == -1) {
+            perror("kevent :(");
+        } else if (nev > 0) {
+            if (target_death_kevent_observer.fflags & NOTE_EXIT) {
+                printf("\nProcess %d has exited. Disconnecting.\n", target->pid);
+                disconnect_target();
+            }
+        }
+    });
 }
 
 void disconnect_target(void) {
-    connected_target = NULL;
+    if (get_connected_target()) {
+        EV_SET(&target_death_kevent_observer, get_connected_target()->pid, EVFILT_PROC, EV_DELETE, 0, 0, NULL);
+        kevent(target_death_kqueue, &target_death_kevent_observer, 1, NULL, 0, NULL);
+        
+        close(target_death_kqueue);
+        
+        free(connected_target);
+        connected_target = NULL;
+    }
 }
 
 lucerne_init_target_result
@@ -91,7 +125,6 @@ lc_init_target_from_name(const char *user_input_name, lucerne_target **target) {
             };
         case 1: { // ideal case: exactly one proc matches that name, we can connect right away
             int index = indices[0];
-            printf("kash?\n");
             printf("found proc at pid %d\n", pids[index]);
             return lc_init_target_from_pid(pids[index], target);
         }

@@ -8,6 +8,9 @@
 #include <stdio.h>
 #include <mach/mach.h>
 #include "subcommand.h"
+#include <readline/readline.h>
+#include <readline/history.h>
+#include "target.h"
 
 #define REPL_INPUT_SIZE 1024
 
@@ -18,14 +21,19 @@ lucerne_command target_subcmds[] = {
     {NULL, NULL, NULL}
 };
 
+
 lucerne_command memory_subcommands[] = {
     {"read", memory_read_subcommand, NULL},
+    {"write", memory_write_subcommand, NULL},
     {NULL, NULL, NULL}
 };
 
 lucerne_command commands[] = {
     {"target", target_subcommand, target_subcmds},
     {"memory", memory_subcommand, memory_subcommands},
+    {"suspend", suspend_subcommand, NULL},
+    {"resume", resume_subcommand, NULL},
+    {"clear",  clear_subcommand,  NULL},
     {NULL, NULL, NULL}
 };
 

@@ -89,8 +89,8 @@ void target_connect_subcommand(int argc, char **argv) {
                 name = strdup(optarg);
                 break;
             default:
-                printf("error\n");
-                exit(EXIT_FAILURE);
+                printf("invalid options\n");
+                return;
         }
     }
     
@@ -107,6 +107,7 @@ void target_connect_subcommand(int argc, char **argv) {
     } else if (name) {
         // name is valid, use it
         res = lc_init_target_from_name(name, &target);
+        free(name);
     } else {
         printf("Please provide either a pid or name to connect to by --pid / --name\n");
         exit(EXIT_FAILURE);

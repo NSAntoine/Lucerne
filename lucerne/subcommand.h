@@ -10,6 +10,8 @@
 
 #include "memory_subcommand.h"
 #include "target_subcommand.h"
+#include "clear_subcommand.h"
+#include "resume_suspend_subcommands.h"
 
 typedef void (*lucerne_command_handler)(int argc, char **argv);
 
