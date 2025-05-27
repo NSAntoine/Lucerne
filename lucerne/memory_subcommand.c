@@ -81,6 +81,7 @@ void memory_read_subcommand(int argc, char **argv) {
 }
 
 // note: crashes when u try to overwrite strings? lol
+// TODO: - Fix that
 void memory_write_subcommand(int argc, char **argv) {
     lucerne_target *target = get_connected_target();
     if (!target) {

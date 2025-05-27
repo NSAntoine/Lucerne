@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>top-level-items</key>
+	<array>
+		<dict>
+			<key>destination</key>
+			<dict>
+				<key>location-parameters</key>
+				<dict>
+					<key>EndingColumnNumber</key>
+					<string>13</string>
+					<key>EndingLineNumber</key>
+					<string>98</string>
+					<key>StartingColumnNumber</key>
+					<string>13</string>
+					<key>StartingLineNumber</key>
+					<string>98</string>
+					<key>Timestamp</key>
+					<string>770030140.265618</string>
+				</dict>
+				<key>rebasable-url</key>
+				<dict>
+					<key>base</key>
+					<string>platform</string>
+					<key>payload</key>
+					<dict>
+						<key>base-id</key>
+						<string>macosx</string>
+						<key>relative-path</key>
+						<string>Developer/SDKs/MacOSX.sdk/usr/include/mach/arm/_structs.h</string>
+					</dict>
+				</dict>
+			</dict>
+			<key>text-context</key>
+			<dict>
+				<key>focused</key>
+				<string></string>
+				<key>leading</key>
+				<string>#else /* !__DARWIN_UNIX03 */
+#define _STRUCT_ARM_THREAD_STATE struct arm_thread_state
+_STRUCT_ARM_T</string>
+				<key>trailing</key>
+				<string>HREAD_STATE
+{
+	__uint32_t r[13];   /* General purpose register r0-r12 */
+</string>
+			</dict>
+			<key>title</key>
+			<string>32 bit state</string>
+			<key>type</key>
+			<string>bookmark</string>
+		</dict>
+		<dict>
+			<key>destination</key>
+			<dict>
+				<key>location-parameters</key>
+				<dict>
+					<key>EndingColumnNumber</key>
+					<string>26</string>
+					<key>EndingLineNumber</key>
+					<string>147</string>
+					<key>StartingColumnNumber</key>
+					<string>0</string>
+					<key>StartingLineNumber</key>
+					<string>147</string>
+					<key>Timestamp</key>
+					<string>770030507.60085</string>
+				</dict>
+				<key>rebasable-url</key>
+				<dict>
+					<key>base</key>
+					<string>platform</string>
+					<key>payload</key>
+					<dict>
+						<key>base-id</key>
+						<string>macosx</string>
+						<key>relative-path</key>
+						<string>Developer/SDKs/MacOSX.sdk/usr/include/mach/arm/_structs.h</string>
+					</dict>
+				</dict>
+			</dict>
+			<key>text-context</key>
+			<dict>
+				<key>focused</key>
+				<string>_STRUCT_ARM_THREAD_STATE64</string>
+				<key>leading</key>
+				<string>};
+#else /* __DARWIN_OPAQUE_ARM_THREAD_STATE64 */
+</string>
+				<key>trailing</key>
+				<string>
+{
+	__uint64_t __x[29]; /* General purpose registers x0-x28 */
+</string>
+			</dict>
+			<key>type</key>
+			<string>bookmark</string>
+		</dict>
+	</array>
+</dict>
+</plist>
