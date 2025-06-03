@@ -10,5 +10,6 @@
 
 void register_subcommand(int argc, char **argv);
 void register_read_subcommand(int argc, char **argv);
+void register_write_subcommand(int argc, char **argv);
 
 #endif /* register_subcommand_h */
