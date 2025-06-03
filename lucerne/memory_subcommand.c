@@ -47,16 +47,22 @@ void memory_read_subcommand(int argc, char **argv) {
     }
     
     if (argc < 2) {
-        printf("usage: memory read <address> <size>\n");
+        printf("usage: memory read <address> <size-in-hex>\n");
         return;
     }
     
     char *addrString = argv[1];
     long addrNumber = strtol(addrString, NULL, 16);
-    int size = 16;
+    long size = 32;
     
     if (argc > 2) {
-        size = atoi(argv[2]);
+        char *endptr;
+        size = strtol(argv[2], &endptr, 16);
+        // make sure it's a valid hex yada yada
+        if (*endptr != '\0') {
+            printf("Size is not a valid hex number\n");
+            return;
+        }
     }
     
     if (size < 0 || !(size % 16 == 0)) {
