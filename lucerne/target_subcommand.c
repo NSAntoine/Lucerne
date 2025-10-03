@@ -19,7 +19,11 @@
 void handle_lc_init(lucerne_init_target_result res, lucerne_target **target) {
     switch (res.code) {
         case lucerne_init_target_success:
-            set_connected_target(*target);
+            if (!set_connected_target(*target)) {
+                printf("Failed to connect to process.\n");
+                free(*target);
+                *target = NULL;
+            }
             printf("Connected to process.\n");
             break;
         case lucerne_init_target_kr_err:
@@ -96,8 +100,6 @@ void target_connect_subcommand(int argc, char **argv) {
     
     optind = 1; // reset getopt (yes this sucks ik!)
     
-    printf("%d\n", pid);
-    
     lucerne_target *target = NULL;
     lucerne_init_target_result res;
     
@@ -132,7 +134,12 @@ void target_info_subcommand(int argc, char **argv) {
         return;
     }
     
-    printf("Target name: %s\nPID: %d\n", target->name, target->pid);
+    pid_t pid = pid_for_target(target);
+    
+    char *name = malloc(2*MAXCOMLEN);
+    proc_name(pid, name, 2*MAXCOMLEN);
+    
+    printf("Target name: %s\nPID: %d\n", name, pid);
 }
 
 void target_subcommand(int argc, char **argv) {

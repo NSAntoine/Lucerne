@@ -10,6 +10,7 @@
 #include "subcommand.h"
 #include <readline/readline.h>
 #include <readline/history.h>
+#include <stdlib.h>
 #include "target.h"
 
 #define REPL_INPUT_SIZE 1024
@@ -23,6 +24,7 @@ lucerne_command target_subcmds[] = {
 
 lucerne_command register_subcmds[] = {
     {"read", register_read_subcommand, NULL},
+    {"write", register_write_subcommand, NULL},
     {NULL, NULL, NULL}
 };
 
