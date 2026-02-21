@@ -40,8 +40,8 @@
             filePath = "lucerne/target.c"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "178"
-            endingLineNumber = "178"
+            startingLineNumber = "176"
+            endingLineNumber = "176"
             landmarkName = "lc_init_target_from_name(user_input_name, target)"
             landmarkType = "9">
          </BreakpointContent>
@@ -56,8 +56,8 @@
             filePath = "lucerne/target.c"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "188"
-            endingLineNumber = "188"
+            startingLineNumber = "186"
+            endingLineNumber = "186"
             landmarkName = "lc_init_target_from_name(user_input_name, target)"
             landmarkType = "9">
          </BreakpointContent>
@@ -72,8 +72,8 @@
             filePath = "lucerne/target.c"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "191"
-            endingLineNumber = "191"
+            startingLineNumber = "189"
+            endingLineNumber = "189"
             landmarkName = "lc_init_target_from_name(user_input_name, target)"
             landmarkType = "9">
          </BreakpointContent>
@@ -88,8 +88,8 @@
             filePath = "lucerne/target.c"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "192"
-            endingLineNumber = "192"
+            startingLineNumber = "190"
+            endingLineNumber = "190"
             landmarkName = "lc_init_target_from_name(user_input_name, target)"
             landmarkType = "9">
          </BreakpointContent>
@@ -107,6 +107,22 @@
             startingLineNumber = "135"
             endingLineNumber = "135"
             landmarkName = "lc_init_target_from_pid(pid, target)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "32DB2AE2-5829-41F9-9566-8132341DB611"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "lucerne/main.c"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
+            landmarkName = "main()"
             landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>

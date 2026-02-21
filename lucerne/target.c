@@ -171,10 +171,8 @@ lc_init_target_from_name(const char *user_input_name, lucerne_target **target) {
     for (int i = 0; i < count; i++) {
         char process_name[2*MAXCOMLEN];
         proc_name(pids[i], process_name, sizeof(process_name));
-//        printf("Process %d: %s\n", pids[i], process_name);
         
         if (strcmp(user_input_name, process_name) == 0) {
-//            printf("Found matching process at pid %d\n", pids[i]);
             // insert index
             indices[indicesSize] = i;
             indicesSize++;

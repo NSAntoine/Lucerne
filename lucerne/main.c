@@ -34,6 +34,10 @@ lucerne_command memory_subcommands[] = {
     {NULL, NULL, NULL}
 };
 
+lucerne_command image_subcommands[] = {
+    {"list", image_list_subcommand, NULL}
+};
+
 lucerne_command commands[] = {
     {"target", target_subcommand, target_subcmds},
     {"memory", memory_subcommand, memory_subcommands},
@@ -41,12 +45,13 @@ lucerne_command commands[] = {
     {"suspend", suspend_subcommand, NULL},
     {"resume", resume_subcommand, NULL},
     {"clear",  clear_subcommand,  NULL},
+    {"image", image_subcommand, image_subcommands},
     {NULL, NULL, NULL}
 };
 
 int main(void) {
     
-    while (1) {
+    while (true) {
         char *argv[MAX_ARGS];
         int argc;
         
@@ -61,26 +66,6 @@ int main(void) {
             parse_command(commands, argc, argv);
         }
     }
-    
-//    task_t nm;
-//    kern_return_t kr = task_for_pid(mach_task_self(), 8506, &nm);
-//    if (kr == KERN_SUCCESS) {
-//        printf("success!\n");
-//    } else {
-//        printf("noo :( (%s)\n", mach_error_string(kr));
-//    }
-//    // insert code here...
-//    vm_offset_t data;
-//    mach_msg_type_number_t cnt;
-//    
-//    mach_vm_read(nm, 0x600000ca0020, sizeof(int), &data, &cnt);
-//    int value;
-//    if (cnt >= sizeof(int)) {
-//        value = *(int *)data;
-//        printf("Read int: %d (0x%x)\n", value, value);
-//    } else {
-//        printf("Not enough data read.\n");
-//    }
     
     return 0;
 }

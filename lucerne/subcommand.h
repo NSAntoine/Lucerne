@@ -13,6 +13,7 @@
 #include "clear_subcommand.h"
 #include "resume_suspend_subcommands.h"
 #include "register_subcommand.h"
+#include "image_subcommand.h"
 
 typedef void (*lucerne_command_handler)(int argc, char **argv);
 

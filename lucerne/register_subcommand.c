@@ -312,13 +312,13 @@ void register_write_subcommand(int argc, char **argv) {
             break;
     }
     
-    kern_return_t set_state_kr = thread_set_state(threads[0],
+    kern_return_t setStateKR = thread_set_state(threads[0],
                                                   ARM_THREAD_STATE64,
                                                   (thread_state_t)&state,
                                                   set_state_count);
     
-    if (set_state_kr != KERN_SUCCESS) {
-        printf("Error trying to set state: %s\n", mach_error_string(set_state_kr));
+    if (setStateKR != KERN_SUCCESS) {
+        printf("Error trying to set state: %s\n", mach_error_string(setStateKR));
     } else {
         printf("Success?\n");
     }
