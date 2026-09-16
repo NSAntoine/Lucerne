@@ -58,15 +58,15 @@ _STRUCT_ARM_T</string>
 				<key>location-parameters</key>
 				<dict>
 					<key>EndingColumnNumber</key>
-					<string>26</string>
+					<string>0</string>
 					<key>EndingLineNumber</key>
-					<string>147</string>
+					<string>148</string>
 					<key>StartingColumnNumber</key>
 					<string>0</string>
 					<key>StartingLineNumber</key>
 					<string>147</string>
 					<key>Timestamp</key>
-					<string>770030507.60085</string>
+					<string>811260371.983321</string>
 				</dict>
 				<key>rebasable-url</key>
 				<dict>
@@ -84,17 +84,20 @@ _STRUCT_ARM_T</string>
 			<key>text-context</key>
 			<dict>
 				<key>focused</key>
-				<string>_STRUCT_ARM_THREAD_STATE64</string>
+				<string>_STRUCT_ARM_THREAD_STATE64
+</string>
 				<key>leading</key>
 				<string>};
 #else /* __DARWIN_OPAQUE_ARM_THREAD_STATE64 */
 </string>
 				<key>trailing</key>
-				<string>
-{
+				<string>{
 	__uint64_t __x[29]; /* General purpose registers x0-x28 */
+	__uint64_t __fp;    /* Frame pointer x29 */
 </string>
 			</dict>
+			<key>title</key>
+			<string>ARM Thread State Sturct</string>
 			<key>type</key>
 			<string>bookmark</string>
 		</dict>

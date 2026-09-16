@@ -159,7 +159,7 @@ lc_init_target_from_name(const char *user_input_name, lucerne_target **target) {
     // get all pid names, iterate, and find the ones that match the name
     // TODO: - Change pids to be allocated depending on how many pids actually exist with malloc
     // (and not just hardcoding 1024)
-    pid_t pids[1024];
+    pid_t pids[5000];
     int count = proc_listpids(PROC_ALL_PIDS, 0, pids, sizeof(pids));
     
     // There may be multiple processes with the same name,

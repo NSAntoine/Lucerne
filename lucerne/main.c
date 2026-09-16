@@ -46,6 +46,7 @@ lucerne_command commands[] = {
     {"resume", resume_subcommand, NULL},
     {"clear",  clear_subcommand,  NULL},
     {"image", image_subcommand, image_subcommands},
+    {"backtrace", backtrace_subcommand, NULL},
     {NULL, NULL, NULL}
 };
 
